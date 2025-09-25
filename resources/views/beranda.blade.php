@@ -8,7 +8,7 @@
 </head>
 <body>
    <x-layout>
-    <main id="main-content">
+    <x-slot:judul>{{$title}}</x-slot:judul>
         <section id="welcome-section" class="content-section">
             <h2>Muhammad Rayhan Aulia</h2>
             <p>

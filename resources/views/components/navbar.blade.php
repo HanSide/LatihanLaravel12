@@ -9,10 +9,10 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-              <a href="/" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Home</a>
-              <a href="/profile" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Profile</a>
-              <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
-
+                 <x-nav-link href="/home" :active="request()->is('home')">Dashboard</x-nav-link>
+                 <x-nav-link href="/profile" :active="request()->is('profile')">Profile</x-nav-link>
+                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                 <x-nav-link href="/student" :active="request()->is('student')">Student</x-nav-link>
             </div>
           </div>
         </div>
@@ -61,11 +61,10 @@
     <el-disclosure id="mobile-menu" hidden class="block md:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-        <a href="#" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Reports</a>
+        <x-nav-link-mobile href="/home" :active="request()->is('home')">Dashboard</x-nav-link-mobile>
+        <x-nav-link-mobile href="/profile" :active="request()->is('profile')">Profile</x-nav-link-mobile>
+        <x-nav-link-mobile href="/contact" :active="request()->is('contact')">Contact</x-nav-link-mobile>
+        <x-nav-link-mobile href="/student" :active="request()->is('student')">Student</x-nav-link-mobile>
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">

@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot:judul>{{$title}}</x-slot:judul>
      <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>Email:</strong> ihanaulia@gmail.com</li>
                 <li class="list-group-item"><strong>Phone :</strong> +62 87712346484</li>
