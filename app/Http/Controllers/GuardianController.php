@@ -9,7 +9,7 @@ class GuardianController extends Controller
 {
      public function index()
     {
-         $guardians = Guardian::all();
+        $guardians = Guardian::all();
         $title = 'Guardian';
         return view('guardian', ['title' => $title , 'guardians' => $guardians]);
     }

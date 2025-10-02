@@ -21,7 +21,7 @@
                 <tr class="hover:bg-gray-100">
                     <td class="border border-gray-400 px-4 py-2">{{$loop->iteration}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{$student['name']}}</td>
-                    <td class="border border-gray-400 px-4 py-2">{{$student['grade']}}</td>
+                    <td class="border border-gray-400 px-4 py-2">{{$student->classroom->name}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{$student['email']}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{$student['address']}}</td>
                     <td class="border border-gray-400 px-4 py-2">{{$student['gender']}}</td>
