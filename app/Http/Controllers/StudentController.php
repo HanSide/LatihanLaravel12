@@ -28,7 +28,7 @@ class StudentController extends Controller
     //         'address' => 'KUDUS',
     //     ],
     //     [
-    //         'id' => '3',
+    //         'id' => '3', 
     //         'name' => 'klontang',
     //         'grade' => '11 RPL 3',
     //         'email' => 'klontag@hotmail.com',

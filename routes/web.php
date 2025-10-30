@@ -9,6 +9,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\Admin\StudentController as AdminStudentController;
+use App\Http\Controllers\Admin\GuardianController as AdminGuardianController;
+use App\Http\Controllers\Admin\TeacherController as AdminTeacherController;
+use App\Http\Controllers\Admin\SubjectController as AdminSubjectController;
+use App\Http\Controllers\Admin\ClassroomController as AdminClassroomController;
 
 
 Route::get('/profile', [ProfilController::class, 'index'])->name('profile',['title' => "Profile"]);
@@ -19,5 +24,14 @@ Route::get('/guardian', [GuardianController::class, 'index'])->name('guardian',[
 Route::get('/classroom', [ClassroomController::class, 'index'])->name('classroom',['title' => "Classroom"]);
 Route::get('/teacher', [TeacherController::class, 'index'])->name('teacher',['title' => "Teacher"]);
 Route::get('/subject', [SubjectController::class, 'index'])->name('subject',['title' => "Subject"]);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::resource('adminstudent', AdminStudentController::class);
+Route::get('/adminsubject', [AdminSubjectController::class, 'index'])->name('subject',['title' => "Subject"]);
+Route::get('/adminclassroom', [AdminClassroomController::class, 'index'])->name('classroom',['title' => "Classroom"]);
+Route::get('/adminguardian', [AdminGuardianController::class, 'index'])->name('guardian',['title' => "Guardian"]);
+Route::get('/adminteacher', [AdminTeacherController::class, 'index'])->name('teacher',['title' => "Teacher"]);
+
 
 
