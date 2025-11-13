@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class admin.modaladdstudent extends Component
+class admin.editmodal extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class admin.modaladdstudent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.modaladdstudent');
+        return view('components.admin.editmodal');
     }
 }

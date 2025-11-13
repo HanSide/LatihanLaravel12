@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class admin.sidelink extends Component
+class admin.deletemodal extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class admin.sidelink extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.sidelink');
+        return view('components.admin.deletemodal');
     }
 }
