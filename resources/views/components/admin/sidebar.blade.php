@@ -1,3 +1,4 @@
+@if(auth()->check() && auth()->user()->role === 'admin')
 <div>
      <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
    <span class="sr-only">Open sidebar</span>
@@ -25,7 +26,13 @@
 <x-admin.sidelink href="/adminteacher" :active="request()->is('adminteacher')">Teacher</x-admin.sidelink>
           </li>
           <li>
-<x-admin.sidelink href="/home" :active="request()->is('home')">Log Out</x-admin.sidelink>
+<form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit" class="w-full text-left">
+        Log Out
+    </button>
+</form>
+
           </li>
       </ul>
   </div>
@@ -111,3 +118,4 @@
   </div>
 </aside>
 </div>
+@endif

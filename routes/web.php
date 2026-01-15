@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\GuardianController as AdminGuardianController;
 use App\Http\Controllers\Admin\TeacherController as AdminTeacherController;
 use App\Http\Controllers\Admin\SubjectController as AdminSubjectController;
 use App\Http\Controllers\Admin\ClassroomController as AdminClassroomController;
+use App\Http\Controllers\AuthController;
 
 
 Route::get('/profile', [ProfilController::class, 'index'])->name('profile',['title' => "Profile"]);
@@ -27,8 +28,19 @@ Route::get('/subject', [SubjectController::class, 'index'])->name('subject',['ti
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-Route::resource('adminstudent', AdminStudentController::class);
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::resource('adminstudent', AdminStudentController::class);
 Route::resource('adminteacher', AdminTeacherController::class);
 Route::resource('adminsubject', AdminSubjectController::class);
 Route::resource('adminclassroom', AdminClassroomController::class);
 Route::resource('adminguardian', AdminGuardianController::class);
+});
+
