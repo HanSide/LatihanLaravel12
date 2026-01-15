@@ -21,7 +21,7 @@ class TeacherFactory extends Factory
             'name'     => fake()->name(),
             'subject_id'   => Subject::factory(),
             'phone' => fake()->phoneNumber(),
-            'email'    => fake()->unique()->safeEmail(),
+            'email'    => fake()->safeEmail(),
             'address'  => fake()->address(),
         ];
     }

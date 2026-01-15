@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\ClassroomController as AdminClassroomController;
 
 Route::get('/profile', [ProfilController::class, 'index'])->name('profile',['title' => "Profile"]);
 Route::get('/contact', [ContactController::class, 'index'])->name('contact',['title' => "Contact"]);
-Route::get('/home', [HomeController::class, 'index'])->name('home',['title' => "Home"]);
+Route::get('/', [HomeController::class, 'index'])->name('home',['title' => "Home"]);
 Route::get('/student', [StudentController::class, 'index'])->name('student',['title' => "Student"]);
 Route::get('/guardian', [GuardianController::class, 'index'])->name('guardian',['title' => "Guardian"]);
 Route::get('/classroom', [ClassroomController::class, 'index'])->name('classroom',['title' => "Classroom"]);
@@ -28,10 +28,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 Route::resource('adminstudent', AdminStudentController::class);
-Route::get('/adminsubject', [AdminSubjectController::class, 'index'])->name('subject',['title' => "Subject"]);
-Route::get('/adminclassroom', [AdminClassroomController::class, 'index'])->name('classroom',['title' => "Classroom"]);
-Route::get('/adminguardian', [AdminGuardianController::class, 'index'])->name('guardian',['title' => "Guardian"]);
-Route::get('/adminteacher', [AdminTeacherController::class, 'index'])->name('teacher',['title' => "Teacher"]);
-
-
-
+Route::resource('adminteacher', AdminTeacherController::class);
+Route::resource('adminsubject', AdminSubjectController::class);
+Route::resource('adminclassroom', AdminClassroomController::class);
+Route::resource('adminguardian', AdminGuardianController::class);

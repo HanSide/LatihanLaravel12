@@ -19,7 +19,6 @@ class SubjectFactory extends Factory
         return [
             //
             'name'   => fake()->unique()->randomElement(['English', 'Bahasa','Mathematics','Science','Japanese']),
-            'desc'   => fake()->sentence(),
         ];
     }
 }

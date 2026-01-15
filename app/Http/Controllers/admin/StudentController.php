@@ -9,28 +9,27 @@ use App\Models\Classroom;
 
 class StudentController extends Controller
 {
-    public function index() {
-        $title = 'Student';
-        $students = Student::all();
-        $classrooms = Classroom::all();
+    public function index(Request $request) {
+    $title = 'Student';
 
-        return view('adminstudent', compact('title', 'students', 'classrooms'));
+    $query = Student::query();
+
+    if ($request->filled('search')) {
+        $search = $request->search;
+
+        $query->where('name', 'like', "%$search%")
+              ->orWhere('email', 'like', "%$search%")
+              ->orWhereHas('classroom', function ($q) use ($search) {
+                  $q->where('name', 'like', "%$search%");
+              });
     }
 
-    public function store(Request $request) {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'classroom_id' => 'required|exists:classrooms,id',
-            'email' => 'required|email|unique:students,email',
-            'address' => 'required|string',
-            'gender' => 'required|in:Male,Female',
-            'birthday' => 'required|date',
-        ]);
+    $students = $query->paginate(5)->withQueryString();
+    $classrooms = Classroom::all();
 
-        Student::create($validated);
+    return view('adminstudent', compact('title', 'students', 'classrooms'));
+}
 
-        return redirect()->route('adminstudent.index')->with('success', 'Student added successfully!');
-    }
 
     public function update(Request $request, $id) {
         $student = Student::findOrFail($id);
@@ -45,7 +44,7 @@ class StudentController extends Controller
 
         return redirect()->route('adminstudent.index')->with('success', 'Student updated successfully!');
     }
-
+    
     public function destroy(Student $adminstudent) {
         $adminstudent->delete();
 

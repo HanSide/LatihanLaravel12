@@ -1,6 +1,8 @@
+@props(['modalTarget'])
+
 <button 
-    data-modal-target="{{ $target }}" 
-    data-modal-toggle="{{ $target }}"
+    data-modal-target="{{ $modalTarget }}" 
+    data-modal-toggle="{{ $modalTarget }}"
     class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
